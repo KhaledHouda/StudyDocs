@@ -1,0 +1,19 @@
+[
+   {
+      "name":"Exercise 8",
+      "tests":[
+         {
+            "test":"src.test.ex08_test.Ex08.test_00_tpr",
+            "points":3
+         },
+         {
+            "test":"src.test.ex08_test.Ex08.test_01_fpr",
+            "points":3
+         },
+         {
+            "test":"src.test.ex08_test.Ex08.test_02_auc",
+            "points":4
+         }
+      ]
+   }
+]

@@ -1,0 +1,26 @@
+[
+   {
+      "name":"Exercise 7",
+      "tests":[
+         {
+            "test":"src.test.ex07_test.Ex07.test_01_stack_c",
+            "points":8
+         },
+         {
+            "test":"src.test.ex07_test.Ex07.test_02_local_a",
+            "points":6,
+            "is_master": true
+         },
+         {
+            "test":"src.test.ex07_test.Ex07.test_02_local_b",
+            "points":4,
+            "is_master": true
+         },
+         {
+            "test":"src.test.ex07_test.Ex07.test_02_local_c",
+            "points":4,
+            "is_master": true
+         }
+      ]
+   }
+]
