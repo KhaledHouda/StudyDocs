@@ -2,6 +2,8 @@ import datetime
 import string
 import os
 import glob
+import argparse
+
 
 
 class Exercise00:
@@ -42,7 +44,31 @@ class Exercise00:
 
         yield glob.glob(typeSpecifier)
 
+    
+#ex7
+    def collatz(self, xStart:int):
+        xCurrent = xStart
+        collatzList = []
+        index = 1
+        while xCurrent !=1:
+            collatzList.append(xCurrent)
 
+            if xCurrent %2 == 1:
+                xCurrent = 3*xCurrent+1
+            else:
+                xCurrent //= 2
+            index +=1
+
+        return (collatzList , index )
+
+#ex7 
+
+#ex8
+    def __call__(self, a,b,c):
+        return "a = " + a + "\n" + "b = " + b + "\n" +  "c = " + c
+
+    
+#ex8
 
 
 
@@ -131,3 +157,19 @@ print( ex.format('order').format('baba', 'mama' , 'jido') )
 print(ex.format('dict').format( 1234, 6877.8245454533 ))
 for i in ex.listfiles():
     print(i)
+
+print( ex("six sevem", "six seven", "addie") ) 
+
+
+
+#10
+parser = argparse.ArgumentParser(description= "ex00 khaled balalalalal nigga")
+parser.add_argument("FILE", help="the input positional parameter")
+parser.add_argument("-b", action="store_true" , default=False, help= "an optional boolean flag(Defaukt:false)" )
+parser.add_argument("-f", "--float", type=float, default=0.0, help= "An optional parameter of type float (Default:0.0)." )
+parser.add_argument("-i", "--INT",type=int, default=0, help= "An optional parameter of type float (Default:0)." )
+
+
+
+
+parser.parse_args()
