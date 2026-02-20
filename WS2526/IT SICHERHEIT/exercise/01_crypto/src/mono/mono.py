@@ -2,14 +2,54 @@ import argparse
 from pathlib import Path
 
 
-def encryptFile(FILE, key):
-        print()
+def cleanFile(fileText:str):         
+    text = fileText
+    text = text.lower()
+    return text
 
-def decryptFile(FILE, key):
-        print()
+def replaceLetters(key, text):
+    resultText = ""
+    ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+    for char in text:
+        if char.isalpha():
+            index = ALPHABET.find(char)
+            resultText += key[index]
+    return resultText
+def reverseReplacement(key, text):
+    resultText = ""
+    ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+    for char in text:
+        if char.isalpha():
+            index = key.find(char)
+            print(index)
+            resultText += ALPHABET[index]
+    return resultText
 
 
-def main():   
+
+
+
+
+def encryptFile(FILE, key, outfile = "abdullah.txt"):
+    FILE1 = Path(FILE)
+    plaintext = Path.read_text(FILE1)
+    plaintext = cleanFile(plaintext)
+    plaintext = replaceLetters(key,plaintext)
+    outputPath = Path(outfile)
+    outputPath.write_text(plaintext)
+
+
+
+def decryptFile(FILE, key, outfile = "jumbo.txt"):
+    FILE1 = Path(FILE)
+    ciphertext = FILE1.read_text()
+    ciphertext = reverseReplacement(key, ciphertext)
+    outputFile = Path(outfile)
+    outputFile.write_text(ciphertext)
+    
+
+
+def main():  
 
     parser = argparse.ArgumentParser()
 
@@ -33,25 +73,22 @@ def main():
     FILE_CONTENTS = Path.read_text(FILE)
 
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    mapper
+    
 
 
 
 
     if args.encrypt:
     #encryption process
-        encryptFile(1,1)
+        encryptFile(args.FILE , args.encrypt)
 
 
     if args.decrypt:
         #decryption process
-        decryptFile(1,1)
+        decryptFile(args.FILE, args.decrypt)
 
 
-    
-
-if __name__  == "__main__":
-    main()
+main()
 
 
 
